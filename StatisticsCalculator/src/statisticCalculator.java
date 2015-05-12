@@ -375,7 +375,7 @@ public static void insertArray(){
  * 
  * Work On ----
  * 1. error handling 
- * 2. reseting arrays when pressing the clear button 
+ * 2. reseting arrays when pressing the clear button -Fixed
  * 3. the decimal places when rounding to the correct number
  * 4. Also work on the mode, if there is more than one instance of the mode bi, tri...etc 
  * 
@@ -545,8 +545,8 @@ public static void findRange(){
 				textvalues.setText("");
 //				 Arrays.fill(strValues, null);	
 				//will need to reset the arrays 
-				 strValues = new String [-1];
-				  intValues = new int[-1];
+				 strValues = new String [0];
+				  intValues = new int[0];
 			}if(source==button1){
 				System.out.println("Exit Java Program");
 				setVisible(false);
