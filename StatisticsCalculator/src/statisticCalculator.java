@@ -358,7 +358,8 @@ public static void insertArray(){
 	    	 textvalues.setForeground(Color.RED);
 	    	 textvalues.setText("No Interger Value Found");
 	     }
-
+	     
+	     
 	 }
 	 ///This for loop, finds the sum of the array
 	 for (int i2 = 0; i2 < intValues.length; i2++) {
@@ -375,7 +376,10 @@ public static void insertArray(){
  * 
  * Work On ----
  * 1. error handling 
- * 2. reseting arrays when pressing the clear button -Fixed
+ *         -continued to fix the error handling one error that will need to be fixed is the color-ration of red to black
+ *         -might use the action performed method for the entire error handling for the program 
+ *    
+ * 2. reseting arrays when pressing the clear button -Fixed 5/11/2015
  * 3. the decimal places when rounding to the correct number
  * 4. Also work on the mode, if there is more than one instance of the mode bi, tri...etc 
  * 
@@ -387,17 +391,21 @@ public static void insertArray(){
  * Finding the Mean
  */
 public static void findMean(){
-//	try{
+	try{
 	
 	average = sum / intValues.length;
 	 String avg =average+"";
 	 textfield2.setText(avg);
 	 System.out.println("Finding the Mean"+" "+avg);	
-//	}catch(NullPointerException rtf){
-//		 textfield2.setForeground(Color.RED);
-//		 textfield2.setText("Error");
-//		 scrollPane.setVisible(false);
-//	}
+     }catch(ArithmeticException rtf){
+		 textfield2.setForeground(Color.RED);
+		 textfield2.setText("Error");
+		 scrollPane.setVisible(false);
+    }catch(NullPointerException npe){
+    	textfield2.setForeground(Color.RED);
+		 textfield2.setText("Error");
+		 scrollPane.setVisible(false);
+    }
 	
 
 	
@@ -410,6 +418,7 @@ public static void findMean(){
 public static void findMedian(){
 
 	System.out.println("Finding the Median");	
+	try{
 	Arrays.sort(intValues);
 	double median;
 	if (intValues.length % 2 == 0)
@@ -419,6 +428,18 @@ public static void findMedian(){
 	
 	String med = median+"";
 	textfield3.setText(med);
+	}catch(ArrayIndexOutOfBoundsException abe){
+		textfield3.setForeground(Color.RED);
+		textfield3.setText("Error");
+		
+	}catch(NullPointerException npe){
+    	textfield3.setForeground(Color.RED);
+		 textfield3.setText("Error");
+		 scrollPane.setVisible(false);
+    }
+	
+
+	
 }
 
 
@@ -429,7 +450,7 @@ public static void findMode(){
 //	Arrays.sort(intValues);
 //	public static int mode(int a[]) {
 	    int maxValue = 0, maxCount = 0;
-
+     try{
 	    for (int i = 0; i < intValues.length; ++i) {
 	        int count = 0;
 	        for (int j = 0; j < intValues.length; ++j) {
@@ -442,13 +463,22 @@ public static void findMode(){
 	        String mode = maxValue+"";
 	    	textfield4.setText(mode);
 	    }
-
+     }catch(NullPointerException npe){
+    	 textfield4.setForeground(Color.RED);
+		 textfield4.setText("Error");
+		 scrollPane.setVisible(false);
+     }catch(ArrayIndexOutOfBoundsException abe){
+ 		textfield4.setForeground(Color.RED);
+ 		textfield4.setText("Error");
+ 		
+ 	}
 //	    return maxValue;
 //	}
 //	
 	
 	   /// http://stackoverflow.com/questions/4191687/how-to-calculate-mean-median-mode-and-range-from-a-set-of-numbers
 	
+	    
 }
 
 
@@ -458,7 +488,7 @@ public static void findMode(){
 public static void findStds(){
 	double std = 0;
 
-	
+	try{
 	for (int i=0; i<intValues.length;i++)
 	{
 	    std = std + (intValues[i]-average)*(intValues[i]-average);
@@ -468,13 +498,22 @@ public static void findStds(){
 	String vari = variance+"";
 	textfield6.setText(vari);/////This JTextField shows the Variance 
 	double SD = Math.sqrt(variance);
-	DecimalFormat df = new DecimalFormat("#.00");
+	DecimalFormat df = new DecimalFormat("#.000");
 	String standard =df.format(SD)+"";
 	textfield1.setText(standard);///This JTextField shows the Standard Deviation
 	
 	////http://stackoverflow.com/questions/18390548/how-to-calculate-standard-deviation-using-java
 	////https://answers.yahoo.com/question/index?qid=20130212100615AAc8bSJ
 	///https://www.easycalculation.com/statistics/standard-deviation.php
+	}catch(NullPointerException fg){
+		 textfield6.setForeground(Color.RED);
+		 textfield6.setText("Error");
+		 scrollPane.setVisible(false);
+		 textfield1.setForeground(Color.RED);
+		 textfield1.setText("Error");
+		 scrollPane.setVisible(false); 
+	}
+	
 	
 }
 
@@ -483,6 +522,8 @@ public static void findStds(){
  * Finding the Range
  */
 public static void findRange(){
+	
+	try{
 	Arrays.sort(intValues);
 	
 	int min = intValues[0];
@@ -495,6 +536,16 @@ public static void findRange(){
 	textfield5.setText(rng); 
 	
 	//http://stackoverflow.com/questions/18992276/java-range-find-difference-between-largest-and-smallest-int
+	}catch(NullPointerException bg){
+		 textfield5.setForeground(Color.RED);
+		 textfield5.setText("Error");
+		 scrollPane.setVisible(false);
+	}catch(ArrayIndexOutOfBoundsException gh){
+		textfield5.setForeground(Color.RED);
+		 textfield5.setText("Error");
+		 scrollPane.setVisible(false);
+	}
+	
 	
 }
 
