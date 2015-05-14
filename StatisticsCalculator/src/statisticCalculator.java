@@ -375,11 +375,8 @@ public static void insertArray(){
  * SoftWare Requirements- debugging
  * 
  * Work On ----
- * 1. error handling 
- *         -continued to fix the error handling one error that will need to be fixed is the color-ration of red to black
- *         -might use the action performed method for the entire error handling for the program 
- *    
- * 2. reseting arrays when pressing the clear button -Fixed 5/11/2015
+ * 1. error handling -Fixed 5/14/2015******
+ * 2. reseting arrays when pressing the clear button -Fixed 5/11/2015*********
  * 3. the decimal places when rounding to the correct number
  * 4. Also work on the mode, if there is more than one instance of the mode bi, tri...etc 
  * 
@@ -391,24 +388,12 @@ public static void insertArray(){
  * Finding the Mean
  */
 public static void findMean(){
-	try{
-	
+
 	average = sum / intValues.length;
 	 String avg =average+"";
 	 textfield2.setText(avg);
 	 System.out.println("Finding the Mean"+" "+avg);	
-     }catch(ArithmeticException rtf){
-		 textfield2.setForeground(Color.RED);
-		 textfield2.setText("Error");
-		 scrollPane.setVisible(false);
-    }catch(NullPointerException npe){
-    	textfield2.setForeground(Color.RED);
-		 textfield2.setText("Error");
-		 scrollPane.setVisible(false);
-    }
-	
-
-	
+	 
 }
 
 
@@ -418,7 +403,7 @@ public static void findMean(){
 public static void findMedian(){
 
 	System.out.println("Finding the Median");	
-	try{
+
 	Arrays.sort(intValues);
 	double median;
 	if (intValues.length % 2 == 0)
@@ -428,18 +413,7 @@ public static void findMedian(){
 	
 	String med = median+"";
 	textfield3.setText(med);
-	}catch(ArrayIndexOutOfBoundsException abe){
-		textfield3.setForeground(Color.RED);
-		textfield3.setText("Error");
-		
-	}catch(NullPointerException npe){
-    	textfield3.setForeground(Color.RED);
-		 textfield3.setText("Error");
-		 scrollPane.setVisible(false);
-    }
-	
 
-	
 }
 
 
@@ -450,7 +424,7 @@ public static void findMode(){
 //	Arrays.sort(intValues);
 //	public static int mode(int a[]) {
 	    int maxValue = 0, maxCount = 0;
-     try{
+
 	    for (int i = 0; i < intValues.length; ++i) {
 	        int count = 0;
 	        for (int j = 0; j < intValues.length; ++j) {
@@ -463,15 +437,7 @@ public static void findMode(){
 	        String mode = maxValue+"";
 	    	textfield4.setText(mode);
 	    }
-     }catch(NullPointerException npe){
-    	 textfield4.setForeground(Color.RED);
-		 textfield4.setText("Error");
-		 scrollPane.setVisible(false);
-     }catch(ArrayIndexOutOfBoundsException abe){
- 		textfield4.setForeground(Color.RED);
- 		textfield4.setText("Error");
- 		
- 	}
+
 //	    return maxValue;
 //	}
 //	
@@ -505,6 +471,7 @@ public static void findStds(){
 	////http://stackoverflow.com/questions/18390548/how-to-calculate-standard-deviation-using-java
 	////https://answers.yahoo.com/question/index?qid=20130212100615AAc8bSJ
 	///https://www.easycalculation.com/statistics/standard-deviation.php
+	
 	}catch(NullPointerException fg){
 		 textfield6.setForeground(Color.RED);
 		 textfield6.setText("Error");
@@ -523,7 +490,6 @@ public static void findStds(){
  */
 public static void findRange(){
 	
-	try{
 	Arrays.sort(intValues);
 	
 	int min = intValues[0];
@@ -536,17 +502,7 @@ public static void findRange(){
 	textfield5.setText(rng); 
 	
 	//http://stackoverflow.com/questions/18992276/java-range-find-difference-between-largest-and-smallest-int
-	}catch(NullPointerException bg){
-		 textfield5.setForeground(Color.RED);
-		 textfield5.setText("Error");
-		 scrollPane.setVisible(false);
-	}catch(ArrayIndexOutOfBoundsException gh){
-		textfield5.setForeground(Color.RED);
-		 textfield5.setText("Error");
-		 scrollPane.setVisible(false);
-	}
-	
-	
+
 }
 
 
@@ -560,20 +516,45 @@ public static void findRange(){
 				insertArray();
 			}if(source==button2){
 				System.out.println("Show Measures of Center");
-				//try{///tries the method
+				try{
 				findMean();
 				findMedian();
 				findMode();
 				findRange();
 				scrollPane.setVisible(true);
 				 setSize(750,690);
-				//}catch(NumberFormatException nfe){//finds the error if there is not integer
-//					 textfield2.setForeground(Color.RED);
-//					 textfield2.setText("Error");
-//					 scrollPane.setVisible(false);
-//					 setSize(750,380);
-			//	}
-			
+				}catch(NullPointerException bg){
+					textfield2.setForeground(Color.RED);
+					 textfield2.setText("Error");
+					 scrollPane.setVisible(false);
+					 textfield3.setForeground(Color.RED);
+						textfield3.setText("Error");
+						 textfield4.setForeground(Color.RED);
+						 textfield4.setText("Error");
+						 textfield6.setForeground(Color.RED);
+						 textfield6.setText("Error");
+						 scrollPane.setVisible(false);
+						 textfield1.setForeground(Color.RED);
+						 textfield1.setText("Error");
+						 textfield5.setForeground(Color.RED);
+						 textfield5.setText("Error");
+				} catch(ArithmeticException rtf){
+						 textfield2.setForeground(Color.RED);
+						 textfield2.setText("Error");
+						 scrollPane.setVisible(false);
+						 textfield3.setForeground(Color.RED);
+						textfield3.setText("Error");
+						 textfield4.setForeground(Color.RED);
+						 textfield4.setText("Error");
+						 textfield6.setForeground(Color.RED);
+						 textfield6.setText("Error");
+						 scrollPane.setVisible(false);
+						 textfield1.setForeground(Color.RED);
+						 textfield1.setText("Error");
+						 textfield5.setForeground(Color.RED);
+						 textfield5.setText("Error");
+				    }
+		
 			}if(source== button3){
 				System.out.println("Display All #s");
 				scrollPane.setVisible(true);
@@ -588,12 +569,20 @@ public static void findRange(){
 				setSize(750,380); //750, 350
 				textarea1.setText("");
 				textfield1.setText("");
+				textfield1.setForeground(Color.BLACK);
 				textfield2.setText("");
+				textfield2.setForeground(Color.BLACK);
 				textfield3.setText("");
+				textfield3.setForeground(Color.BLACK);
 				textfield4.setText("");
+				textfield4.setForeground(Color.BLACK);
 				textfield5.setText("");
+				textfield5.setForeground(Color.BLACK);
 				textfield6.setText("");
+				textfield6.setForeground(Color.BLACK);
 				textvalues.setText("");
+				textvalues.setForeground(Color.BLACK);
+				
 //				 Arrays.fill(strValues, null);	
 				//will need to reset the arrays 
 				 strValues = new String [0];
