@@ -1,13 +1,9 @@
 
-	import java.awt.event.ActionListener;
-
-	import javax.swing.*;
-
-	import java.awt.Font;
-
-	import javax.swing.JFrame;
-
-	import java.awt.BorderLayout;
+import java.awt.event.ActionListener;
+import javax.swing.*;
+import java.awt.Font;
+import javax.swing.JFrame;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -16,8 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-
-	import javax.swing.ImageIcon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -30,8 +25,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JOptionPane;
-
-	import java.io.BufferedReader;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -51,7 +45,8 @@ import java.util.Scanner;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
-	public class statisticCalculator extends JFrame implements ActionListener {
+
+public class statisticCalculator extends JFrame implements ActionListener {
 		
 		JLabel label1;
 		JLabel label2;///
@@ -59,11 +54,11 @@ import java.util.StringTokenizer;
 		JLabel labelp;
 		JLabel labelt;
 		JLabel labelc;
-		JLabel label5;///
-		JLabel label6;///
+		JLabel label5;
+		JLabel label6;
 		JLabel labelmoves;
 		JLabel labelb;
-		JLabel label4;////
+		JLabel label4;
 		JLabel var;
 		
 		
@@ -119,14 +114,14 @@ import java.util.StringTokenizer;
 		  
 
 	     static String[] strValues;
-	    static int[] intValues;
-	  static  String values;
+	     static int[] intValues;
+	     static  String values;
 	  
-	  ///Global data types
-	  static int sum=0;
-	static  double average;
+	   ///Global data types
+	    static int sum=0;
+	    static  double average;
 		   
-	public statisticCalculator(){///*****************************************************************
+public statisticCalculator(){///*****************************************************************
 		
 		setSize(750,380); ///750, 350
 		setTitle("Statistics");
@@ -173,9 +168,7 @@ import java.util.StringTokenizer;
 		
 		label3 = new JLabel("Standard Deviation:",JLabel.CENTER);
 		label3.setFont(new Font("Serif", Font.BOLD,13));
-//		labelp = new JLabel( new ImageIcon("src/Images/quarantine_zone.jpg") );
 		labelt = new JLabel("Measures of Center",JLabel.CENTER);
-//		labelb = new JLabel( new ImageIcon("src/Images/blood_dream.jpg") );
 		labelt.setFont(new Font("Serif", Font.BOLD,20));
 		labelt.setForeground(Color.white);
 		labelc= new JLabel("Type Numbers:");
@@ -183,7 +176,7 @@ import java.util.StringTokenizer;
 		labelc.setForeground(Color.white);
 		textvalues = new JTextField(17);
 		 textfield1 = new JTextField(6);
-		 //textfield1.addActionListener(this);////action listener for the textfield  for the Age
+		 
 		 
 		 ///Measures of Center data
 		 textfield2 = new JTextField(6);
@@ -199,8 +192,8 @@ import java.util.StringTokenizer;
 	     scrollPane.setPreferredSize(new Dimension(650, 350));
 		 scrollPane.setVisible(false);
 		 
-		button1 = new JButton("Exit");
-		button1.addActionListener(this);
+		 button1 = new JButton("Exit");
+		 button1.addActionListener(this);
 		 
 	     button2 = new JButton("Show Measures of Center");//******************
 		 button2.addActionListener(this);
@@ -217,46 +210,37 @@ import java.util.StringTokenizer;
 		 var  = new JLabel("Variance STD:",JLabel.CENTER);
 		var.setFont(new Font("Serif", Font.BOLD,13));
 		textfield6  = new JTextField(6);
-//		 button7 = new JButton("Delete Patients");
-//		 button7.addActionListener(this);
-//		 
+ 
 	
-		   
-//		 
-//		    results = new JFrame();
-//		    results.setVisible(false);
-		    
 
 		
-			///////////////////////////////////////////////////////////////////
-			 /*
-			  * Main JPanels
-			  */
-			 main.add(panel1, BorderLayout.NORTH);
-			 main.add(panel2, BorderLayout.CENTER);
-			 main.add(panel3, BorderLayout.SOUTH);
-			 add(main);
-			 panel1.setBackground(Color.darkGray);///blue
-			  panel2.setBackground(Color.darkGray); ///gray
-			  panel3.setBackground(Color.darkGray); //Green
-			  ///////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////
+		 /*
+		  * Main JPanels
+		  */
+		 main.add(panel1, BorderLayout.NORTH);
+		 main.add(panel2, BorderLayout.CENTER);
+		 main.add(panel3, BorderLayout.SOUTH);
+		 add(main);
+		 panel1.setBackground(Color.darkGray);///blue
+		  panel2.setBackground(Color.darkGray); ///gray
+		  panel3.setBackground(Color.darkGray); //Green
+		  ///////////////////////////////////////////////////////////
 		  
-			  /*
-				 * Added variables for Panel1
-				 */
-//				panel1.add(labelp); 
-				panel1.add(labelt);
-//				panel1.add(labelb);
+		    /*
+			 * Added variables for Panel1
+			 */
+			panel1.add(labelt);
+
 				
-				/*
-				 * Added variables to JPanel2
-				 */
-				subpl1.add(labelc);
-				subpl1.add(textvalues);
-				subpl1.add(button5);
-				subpl2.add(button2);
-//				 subpl2.add(combo2);
-//				 subpl2.add(combo3);
+			/*
+			 * Added variables to JPanel2
+			 */
+			subpl1.add(labelc);
+			subpl1.add(textvalues);
+			subpl1.add(button5);
+			subpl2.add(button2);
+
 			
 			  /*
 			   * Added sub JPanels to Panel2
@@ -284,10 +268,9 @@ import java.util.StringTokenizer;
 			 supanelmoc.add(textfield5);
 			  
 			  
-//			  subpanel1.add(combo1);
+
 			  subpl3.add(subpanel4);///////subpanel 4
-			 // subpanel4.add(label4);
-			  //subpanel4.add(combo4);
+			
 			  subpl3.add(subpanel2);///////// subpanel 2
 			  ///subpanel Standard Deviation
 			  subpanel2.add(label3);
@@ -296,31 +279,21 @@ import java.util.StringTokenizer;
 			  supanelm.add(textfield1);
 			  supanelm.add(var);
 			  supanelm.add(textfield6);
-			  ///might add the Variance 2/25/2015
+			 
 			  
 			  
-//			  subpanel2.add(combo2);
-//			  subpanel2.add(checkbox2);
-		     // subpl3.add(subpanel3);//////////subpanel 3
-		      //subpanel3.add(label2);
-		      //subpanel3.add(combo3); 
-				 /*
-				  * Added variables to JPanel3
-				  */
-		         panel3.add(subp, BorderLayout.NORTH);
-//		         subp.add(labelcomp);
-//		         subp.add(textfield1);
-		         subp.add(button3);
-				 subp.add(button4);
-				 subp.add(button1);
-//				 subp.add(labelmoves);
-//	             subp.add(textfield2);
-			     panel3.add(subpanel, BorderLayout.SOUTH);
-			     subpanel.add(scrollPane);
-			  
-				 
-		        setVisible(true);
-	}
+			 /*
+			  * Added variables to JPanel3
+			  */
+	         panel3.add(subp, BorderLayout.NORTH);
+	         subp.add(button3);
+			 subp.add(button4);
+			 subp.add(button1);
+		     panel3.add(subpanel, BorderLayout.SOUTH);
+		     subpanel.add(scrollPane);
+			 
+		      setVisible(true);
+}
 
 
 /*
@@ -582,9 +555,6 @@ public static void findRange(){
 				textfield6.setForeground(Color.BLACK);
 				textvalues.setText("");
 				textvalues.setForeground(Color.BLACK);
-				
-//				 Arrays.fill(strValues, null);	
-				//will need to reset the arrays 
 				 strValues = new String [0];
 				  intValues = new int[0];
 			}if(source==button1){
