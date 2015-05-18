@@ -14,3 +14,4 @@ The issues comprise of the decimal computation to be slightly off
 The other is currently the application only finds one Mode. If other numbers are inputted that are the same it only recognizes 
 one of those Modes.
 
+![capture](https://cloud.githubusercontent.com/assets/11635523/7690539/3f3f4cce-fd69-11e4-8a3e-40cfa1005b51.PNG) 
