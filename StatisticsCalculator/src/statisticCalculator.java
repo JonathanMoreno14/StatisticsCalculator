@@ -49,7 +49,7 @@ import java.util.StringTokenizer;
 public class statisticCalculator extends JFrame implements ActionListener {
 		
 		JLabel label1;
-		JLabel label2;///
+		JLabel label2;
 		JLabel label3;
 		JLabel labelp;
 		JLabel labelt;
@@ -310,18 +310,18 @@ public statisticCalculator(){///************************************************
  */
 public static void insertArray(){
 	
-
+	// Gets the inserted values of the text field and uses a comma to separate them.
 	 values = textvalues.getText().replaceAll("\\s","");
 
-	 // Get the inserted values of the text field and use the comma as a separator.
-	 // The values will be returned as a string array
+	 
+	 // Then the values are returned as a string array
 	  strValues = values.split(",");// String Array[]
 
-	 // Initialize int array
+	 // Initialize the int array
 	  intValues = new int[strValues.length];/// Int Array[]
 	
 	
-	  // Convert each string value to an integer value and put it into the integer array
+	  // Converts each string value to an integer value and then inserts into the integer array
 	 for(int i = 0; i < strValues.length; i++) {
 	     try {
 	        intValues[i] = Integer.parseInt(strValues[i]);
@@ -334,24 +334,20 @@ public static void insertArray(){
 	     
 	     
 	 }
-	 ///This for loop, finds the sum of the array
+	 ///This for loop, finds the total sum of the array
 	 for (int i2 = 0; i2 < intValues.length; i2++) {
          sum = intValues[i2] + sum;
      }
 	 textarea1.append("Total Values of the Array"+" "+sum);	 
-	 
-
 }
 
 
 /*
  * SoftWare Requirements- debugging
  * 
- * Work On ----
- * 1. error handling -Fixed 5/14/2015******
- * 2. reseting arrays when pressing the clear button -Fixed 5/11/2015*********
- * 3. the decimal places when rounding to the correct number
- * 4. Also work on the mode, if there is more than one instance of the mode bi, tri...etc 
+ *1. Decimal placement slightly off
+ *2. Currently only finds one mode in within the numbers
+ * 
  * 
  */
 
@@ -386,7 +382,6 @@ public static void findMedian(){
 	
 	String med = median+"";
 	textfield3.setText(med);
-
 }
 
 
@@ -394,9 +389,8 @@ public static void findMedian(){
  * Finding the Mode
  */
 public static void findMode(){
-//	Arrays.sort(intValues);
-//	public static int mode(int a[]) {
-	    int maxValue = 0, maxCount = 0;
+
+	int maxValue = 0, maxCount = 0;
 
 	    for (int i = 0; i < intValues.length; ++i) {
 	        int count = 0;
@@ -409,15 +403,7 @@ public static void findMode(){
 	        }
 	        String mode = maxValue+"";
 	    	textfield4.setText(mode);
-	    }
-
-//	    return maxValue;
-//	}
-//	
-	
-	   /// http://stackoverflow.com/questions/4191687/how-to-calculate-mean-median-mode-and-range-from-a-set-of-numbers
-	
-	    
+	    }	
 }
 
 
@@ -441,10 +427,6 @@ public static void findStds(){
 	String standard =df.format(SD)+"";
 	textfield1.setText(standard);///This JTextField shows the Standard Deviation
 	
-	////http://stackoverflow.com/questions/18390548/how-to-calculate-standard-deviation-using-java
-	////https://answers.yahoo.com/question/index?qid=20130212100615AAc8bSJ
-	///https://www.easycalculation.com/statistics/standard-deviation.php
-	
 	}catch(NullPointerException fg){
 		 textfield6.setForeground(Color.RED);
 		 textfield6.setText("Error");
@@ -452,9 +434,7 @@ public static void findStds(){
 		 textfield1.setForeground(Color.RED);
 		 textfield1.setText("Error");
 		 scrollPane.setVisible(false); 
-	}
-	
-	
+	}	
 }
 
 
@@ -468,19 +448,16 @@ public static void findRange(){
 	int min = intValues[0];
 	int max = intValues[intValues.length - 1];
 	int difference = 0;
-	for (int i=0; i<intValues.length; i++){//might remove loop 2/27/2015
+	for (int i=0; i<intValues.length; i++){
 	 difference =max - min;
 	}
 	String rng =difference+"";
 	textfield5.setText(rng); 
 	
-	//http://stackoverflow.com/questions/18992276/java-range-find-difference-between-largest-and-smallest-int
-
 }
 
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
+@Override
+public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		System.out.println("at Action Performed");
 		Object source=e.getSource();
